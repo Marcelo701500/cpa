@@ -9,24 +9,25 @@
         ng-options="paciente.nome for paciente in pacientes | orderBy:'nome'">
         <option value="">Selecione o paciente</option>
     </select>  
-
+    
+     <!--Messages-->
     <div ng-show="contatoForm.sis.$dirty" ng-messages="contatoForm.sis.$error">
-        <div ng-message="required" class="alert alert-danger">Por favor, preencha o campo nome!</div>
-        <div ng-message="minlength" class="alert alert-danger">O campo nome deve ter no mínimo 10 caracteres!</div>            
+        <div ng-message="required" class="alert alert-danger">Por favor, preencha o campo Sis!</div>
+        <div ng-message="minlength" class="alert alert-danger">O campo Sis deve ter no mínimo 2 caracteres!</div>
     </div>
     
-    <div ng-show="contatoForm.telefone.$dirty" ng-messages="contatoForm.telefone.$error">
-        <div ng-message="required" class="alert alert-danger">Por favor, preencha os campo telefone!</div>
-        <div ng-message="pattern" class="alert alert-danger">O campo telefone deve estar no formato XXXXX-XXXX!</div>
+    <div ng-show="contatoForm.dia.$dirty" ng-messages="contatoForm.dia.$error">
+        <div ng-message="required" class="alert alert-danger">Por favor, preencha os campo Dia!</div>
+        <div ng-message="minlength" class="alert alert-danger">O campo Dia deve ter no mínimo 2 caracteres!</div>
     </div>
 
     <div ng-show="false" class="alert alert-success">Cadastro realizado com sucesso!</div>
     
     <form name="contatoForm">   
         <label class="control-label ng-scope" for="sis">Sis</label>          
-        <input class="form-control" type="number" name="sis" ng-model="contato.sis" ng-required="true" ng-minlength="3" placeholder="">
+        <input class="form-control" type="number" name="sis" ng-model="contato.sis" ng-required="true" ng-minlength="2" placeholder="">
         <label for="dia">Dia</label> 
-        <input class="form-control" type="number" name="dia" ng-model="contato.dia" ng-required="true" placeholder="">
+        <input class="form-control" type="number" name="dia" ng-model="contato.dia" ng-required="true" ng-minlength="2" placeholder="">
         <label for="pulso">Pulso</label>
         <input class="form-control" type="number" name="pulso" ng-model="contato.pulso" ng-required="true" placeholder="">
         <label for="glicemia">Oxigeção</label>

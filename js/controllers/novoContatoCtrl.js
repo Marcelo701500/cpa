@@ -1,7 +1,6 @@
 angular.module("controlePressaoArterial").controller("novoContatoCtrl", function($scope, $location, contatosAPI, pacientes) {
             
     $scope.app = "Controle Pressão Arterial"; 
-
     $scope.pacientes = pacientes.data;  
     
     // Adicionar - Ok
@@ -11,7 +10,7 @@ angular.module("controlePressaoArterial").controller("novoContatoCtrl", function
             .then(function (contato) {
                 delete $scope.contato;
                 $scope.contatoForm.$setPristine();   
-                $location.path("/registros");             
+                $location.path("#/registros");             
             })
             .catch (function error(response) {
                 $scope.message = "Aconteceu um problema";                         

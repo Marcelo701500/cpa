@@ -1,6 +1,7 @@
 angular.module("controlePressaoArterial").controller("controlePressaoArterialCtrl", function($scope, contatosAPI, pacientesAPI, $filter) {
             
     $scope.app = $filter('upper')("CPA");
+
     $scope.contatos = [];    
     $scope.pacientes = [];  
 
@@ -42,7 +43,6 @@ angular.module("controlePressaoArterial").controller("controlePressaoArterialCtr
     });
 
     }
-
 
     /* Aula 16 - Apresenta inconsistencia
     var counter = 0;    
@@ -115,20 +115,17 @@ angular.module("controlePressaoArterial").controller("controlePressaoArterialCtr
         }
     };
 
-    $scope.reset = function () {
-        console.log("Resetting...");
+    $scope.reset = function () {        
         $scope.showDialog();
     };
 
-    $scope.delete = function (contato, index) {
-        console.log("Deleting...");
+    $scope.delete = function (contato, index) {        
         $scope.deletarContato($scope.contatoParaDeletar, $scope.contatoindex)
         carregarContatos();
         $scope.showDialog();
     };
 
-    $scope.save = function () {
-        console.log("Saving...");
+    $scope.save = function () {        
         $scope.showDialog();
     };
 
