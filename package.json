@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "angular-route": "^1.8.2",
+    "cors": "^2.8.5"
+  },
+  "name": "lista-telefonica",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "[Marcelo de Oliveira]",
+  "license": "ISC",
+  "description": ""
+}

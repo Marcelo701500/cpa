@@ -1,0 +1,60 @@
+.mt-4 {  
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 80%;
+}
+.form-control {
+    margin-bottom: 0.75em;
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;  
+    text-align:left;
+    float:left;
+      
+}
+
+.pagination{
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+    column-gap: 0.3rem;
+}
+
+.btn-cpa {
+    display:flex;
+    gap: 1rem;
+}
+
+.selecionado {
+    background-color: lightgoldenrodyellow;
+}
+.negrito {
+    font-weight: 700;
+}
+.actions {
+    display: flex;
+}
+.material-icons.delete {
+    color: red;
+    cursor: pointer;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+button {
+    margin-bottom: 10px;
+}
+footer {
+    background-color: lightgrey;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;           
+    padding: 1rem 1rem;
+    text-align: center; 
+    width: 80%;
+}
+

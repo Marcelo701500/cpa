@@ -1,0 +1,19 @@
+.ui-accordion {
+    border: 1px solid #cecbcb;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+}
+
+.ui-accordion-title {
+    padding: 10px;
+    background: #ddd;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;   
+}
+.ui-accordion-content {    
+    padding: 10px;
+    margin: 1px 0;
+}

@@ -1,0 +1,66 @@
+<div ng-controller="controlePressaoArterialCtrl">
+    <div class="mt-4 p-5 bg-primary text-white rounded">
+        <h4>{{app}}</h4>        
+    </div>        
+    <!-- <div ui-alert></div>  modo normal diretiva-->   
+    <!-- Modo componente Sem transclude = true (directive)
+    <ui-alert title="Ops, aconteceu um problema!" message="error"></ui-alert> -->
+
+    <ui-alert title="Ops, aconteceu um problema!" ng-show="false">
+        Não foi possível carregar os dados!
+    </ui-alert> 
+
+    <div class="mt-4">         
+     
+        <div class="btn-cpa col-12">
+            <a class="form-control btn btn-primary" href="#/novoContato">Registrar</a>
+            <a class="form-control btn btn-secondary" href="#/pacientes">Pacientes</a>
+        </div>
+        <button class="btn btn-danger col-12" ng-click="apagarContatos(contatos)" ng-if="isContatoSelecionado(contatos)">Apagar registros</button>
+                
+        <input type="text" class="form-control" ng-model="criterioDeBusca" ng-model-options="{updateOn: 'default blur', debounce:{default:500, blur:0}}" placeholder="O que você está buscando?">             
+        <div class="table-responsive">
+            <table class="table table-striped" ng-show="contatos.length > 0">
+                <thead>
+                    <tr>
+                        <th></th>                
+                        <th><a href="">Nome</a></th>  
+                        <th><a href="" ng-click="ordenarPor('data')">Data</a></th>              
+                        <th>Sis</a></th>
+                        <th>Dia</th>
+                        <th>Pulso</th>
+                        <th>Oxi</th>  
+                        <th>Gli</th>  
+                        <th colspan="2">Ações</th>                               
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- ng-repeat="contato in contatos | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao track by $index" -->
+                    <tr ng-class="{'selecionado negrito': contato.selecionado}" 
+                        dir-paginate="contato in contatos|filter:criterioDeBusca|orderBy:criterioDeOrdenacao:direcaoDaOrdenacao|itemsPerPage:6 track by $index">
+                        <td><input type="checkbox" name="" id="" ng-model="contato.selecionado" ng-click="verificarContatoSelecionado(contato)"></td>
+                        <td><a href="#/detalhesContato/{{contato.id}}">{{contato.paciente.nome}}</a></td>                
+                        <td>{{contato.data | date:'dd/MM/yyyy HH:mm'}}</td>
+                        <td>{{contato.sis}}</td>
+                        <td>{{contato.dia | lowercase}}</td>
+                        <td>{{contato.pulso}}</td>
+                        <td>{{contato.oxigenacao}}</td>
+                        <td>{{contato.glicemia}}</td>                
+                        <td> 
+                            <a href="#/editarContato/{{contato.id}}"><i class="material-icons edit">mode_edit</i></a>    
+                        </td>
+                        <td>
+                            <div class="open-dialog" ng-click="confirmationDialog('Deletar', 'Deseja deletar o registro de: ' + contato.paciente.nome + ' registrado em: ' + contato.data + '?','Deletar','delete', contato, $index)">                        
+                                <i class="material-icons delete">delete</i>
+                            </div>                    
+                        </td>                
+                    </tr>
+                </tbody>
+            </table>              	
+            <dir-pagination-controls max-size="5" boundary-links="true"></dir-pagination-controls>
+        </div>       
+        
+        <div ng-include="'view/confirmDialogModal.html'"></div>
+
+    </div>
+</div>

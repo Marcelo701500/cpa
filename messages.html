@@ -1,0 +1,9 @@
+
+<div ng-messages="contatoForm.nome.$error" class="alert alert-danger">
+    <div ng-message="required">Por favor, preencha o campo nome!</div>
+    <div ng-message="minlength">O campo nome deve ter no mínimo 10 caracteres!</div>
+</div>
+<div ng-messages="contatoForm.telefone.$error" class="alert alert-danger">
+    <div ng-message="required">Por favor, preencha os campo telefone!</div>
+    <div ng-message="pattern">O campo telefone deve estar no formato XXXXX-XXXX!</div>
+</div>

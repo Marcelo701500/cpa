@@ -1,0 +1,41 @@
+<div class="mt-4 p-5 bg-primary text-white rounded">
+    <h4>Novo Registro</h4>        
+</div> 
+
+<div class="mt-4"> 
+    <!--Messages-->
+    <label for="paciente">Paciente</label>
+    <select class="form-control form-select" name="paciente" id="paciente" ng-model="contato.paciente" 
+        ng-options="paciente.nome for paciente in pacientes | orderBy:'nome'">
+        <option value="">Selecione o paciente</option>
+    </select>  
+
+    <div ng-show="contatoForm.sis.$dirty" ng-messages="contatoForm.sis.$error">
+        <div ng-message="required" class="alert alert-danger">Por favor, preencha o campo nome!</div>
+        <div ng-message="minlength" class="alert alert-danger">O campo nome deve ter no mínimo 10 caracteres!</div>            
+    </div>
+    
+    <div ng-show="contatoForm.telefone.$dirty" ng-messages="contatoForm.telefone.$error">
+        <div ng-message="required" class="alert alert-danger">Por favor, preencha os campo telefone!</div>
+        <div ng-message="pattern" class="alert alert-danger">O campo telefone deve estar no formato XXXXX-XXXX!</div>
+    </div>
+
+    <div ng-show="false" class="alert alert-success">Cadastro realizado com sucesso!</div>
+    
+    <form name="contatoForm">   
+        <label class="control-label ng-scope" for="sis">Sis</label>          
+        <input class="form-control" type="number" name="sis" ng-model="contato.sis" ng-required="true" ng-minlength="3" placeholder="">
+        <label for="dia">Dia</label> 
+        <input class="form-control" type="number" name="dia" ng-model="contato.dia" ng-required="true" placeholder="">
+        <label for="pulso">Pulso</label>
+        <input class="form-control" type="number" name="pulso" ng-model="contato.pulso" ng-required="true" placeholder="">
+        <label for="glicemia">Oxigeção</label>
+        <input class="form-control" type="number" name="oxigenacao" ng-model="contato.oxigenacao" ng-required="true" placeholder="">
+        <label for="glicemia">Glicemia</label>
+        <input class="form-control" type="number" name="glicemia" ng-model="contato.glicemia" ng-required="true" placeholder="">
+        <div class="mt-4 col-12">
+            <button class="btn btn-primary col-6" ng-click="adicionarContato(contato)" ng-disabled="contatoForm.$invalid">Adicionar</button>
+            <a href="#/registros" class="btn btn-secondary col-6">Voltar</a>
+        </div>
+    </form>
+</div>

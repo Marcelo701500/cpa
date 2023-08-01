@@ -1,0 +1,25 @@
+<div class="mt-4 p-5 bg-light text-white rounded">
+    <table class="table">
+        <tr>
+            <td>Nome: <strong>{{contato.paciente.nome}}</strong></td>
+        </tr>
+        <tr>
+            <td>Data: {{contato.data | date: "dd/MM/yyyy HH:mm"}}</td>
+        </tr>
+        <tr>
+            <td>Sis: <strong>{{contato.sis}}</strong></td>
+        </tr>
+        <tr>
+            <td>Dia: <strong>{{contato.dia}}</strong></td>
+        </tr>
+        <tr>
+            <td>Pulso: <strong>{{contato.pulso}}</strong></td>
+        </tr>
+        <tr>
+            <td>Glicemia: <strong>{{contato.glicemia}}</strong></td>
+        </tr>
+    </table>    
+</div> 
+<div class="mt-4">
+    <a href="#/registros" class="btn btn-primary">Voltar</a>
+</div>

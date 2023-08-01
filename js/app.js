@@ -1,0 +1,1 @@
+angular.module("controlePressaoArterial", ["ngMessages","serialGenerator","ui","ngRoute","ui.bootstrap","angularUtils.directives.dirPagination"]);
