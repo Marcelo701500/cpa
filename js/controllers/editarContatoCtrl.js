@@ -7,7 +7,7 @@ angular.module("controlePressaoArterial").controller("editarContatoCtrl", functi
         contatosAPI.updateContato(contato)
             .then(function (contato) {
                 //delete $scope.contato;
-                //$scope.contatoForm.$setPristine();
+                $scope.contatoForm.$setPristine();
                 console.log($location);
                 $location.path("#/registros");             
             })
