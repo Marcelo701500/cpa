@@ -9,7 +9,7 @@ angular.module("controlePressaoArterial").controller("editarContatoCtrl", functi
                 //delete $scope.contato;
                 $scope.contatoForm.$setPristine();
                 console.log($location);
-                $location.path("#/registros");             
+                $location.path("/registros");             
             })
             .catch (function error(response) {
                 $scope.message = "Aconteceu um problema";                         
