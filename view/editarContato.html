@@ -4,7 +4,11 @@
 
 <div class="mt-4"> 
 
-    <!--Messages-->    
+    <!--Messages-->   
+    <div ng-show="contatoForm.paciente.$dirty" ng-messages="contatoForm.paciente.$error">
+        <div ng-message="required" class="alert alert-danger">Por favor, selecione um paciente!</div>
+    </div>
+
     <div ng-show="contatoForm.sis.$dirty" ng-messages="contatoForm.sis.$error">
         <div ng-message="required" class="alert alert-danger">Por favor, preencha o campo Sis!</div>
         <div ng-message="minlength" class="alert alert-danger">O campo Sis deve ter no mínimo 2 caracteres!</div>
@@ -19,7 +23,7 @@
     
     <form name="contatoForm">             
         <label for="paciente">Paciente</label>
-        <select class="form-control form-select" name="paciente" id="paciente" ng-model="contato.paciente" 
+        <select class="form-control form-select" name="paciente" id="paciente" ng-model="contato.paciente" ng-required="true" 
                 ng-options="paciente.nome for paciente in pacientes | orderBy:'nome' track by paciente.nome">
             <option value="">Selecione o paciente</option>
         </select>  
