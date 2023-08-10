@@ -37,7 +37,7 @@
                 <tbody>
                     <!-- ng-repeat="contato in contatos | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao track by $index" -->
                     <tr ng-class="{'selecionado negrito': contato.selecionado}" 
-                        dir-paginate="contato in contatos|filter:criterioDeBusca|orderBy:criterioDeOrdenacao:direcaoDaOrdenacao|itemsPerPage:6 track by $index">
+                        dir-paginate="contato in contatos|filter:criterioDeBusca|orderBy:criterioDeOrdenacao:direcaoDaOrdenacao|itemsPerPage:20 track by $index">
                         <td><input type="checkbox" name="" id="" ng-model="contato.selecionado" ng-click="verificarContatoSelecionado(contato)"></td>
                         <td><a href="#/detalhesContato/{{contato.id}}">{{contato.paciente.nome}}</a></td>                
                         <td>{{contato.data | date:'dd/MM/yyyy HH:mm'}}</td>
@@ -57,7 +57,7 @@
                     </tr>
                 </tbody>
             </table>              	
-            <dir-pagination-controls max-size="20" boundary-links="true"></dir-pagination-controls>
+            <dir-pagination-controls max-size="5" boundary-links="true"></dir-pagination-controls>
         </div>       
         
         <div ng-include="'view/confirmDialogModal.html'"></div>
