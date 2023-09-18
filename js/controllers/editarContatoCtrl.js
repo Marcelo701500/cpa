@@ -5,10 +5,8 @@ angular.module("controlePressaoArterial").controller("editarContatoCtrl", functi
     $scope.contato = contato.data;
     $scope.contato.diaData = new Date(contato.data.data);
     $scope.contato.horaData = new Date(contato.data.data);
-    $scope.contato.data = new Date(contato.data.data);    
-    
-    console.log($scope.contato);
-    
+    $scope.contato.data = new Date(contato.data.data);  
+
     $scope.updateContato = function(contato) { 
 
         var  selectedDate = new Date(contato.diaData);
