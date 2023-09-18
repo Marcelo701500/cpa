@@ -3,12 +3,13 @@ angular.module("controlePressaoArterial").controller("editarContatoCtrl", functi
     $scope.app = "CPA - Controle da Pressão Arterial";  
    
     $scope.contato = contato.data;
-    $scope.contato.diaData = new Date(contato.data.data);
-    $scope.contato.horaData = new Date(contato.data.data);
-    $scope.contato.data = new Date(contato.data.data);  
+    //$scope.contato.diaData = new Date(contato.data.data);
+    //$scope.contato.horaData = new Date(contato.data.data);
+    //$scope.contato.data = new Date(contato.data.data);  
 
     $scope.updateContato = function(contato) { 
 
+        /*
         var  selectedDate = new Date(contato.diaData);
         var year = selectedDate.getFullYear();
         var month = selectedDate.getMonth() + 1;
@@ -19,7 +20,8 @@ angular.module("controlePressaoArterial").controller("editarContatoCtrl", functi
         var minutes = selectedHour.getMinutes();
 
         contato.data = new Date(year, month, day, hour, minutes, 0);
-
+        */
+       
         contatosAPI.updateContato(contato)        
             .then(function (contato) {
                 //delete $scope.contato;

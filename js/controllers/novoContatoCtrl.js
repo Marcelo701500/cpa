@@ -4,7 +4,7 @@ angular.module("controlePressaoArterial").controller("novoContatoCtrl", function
     $scope.pacientes = pacientes.data; 
 
     $scope.adicionarContato = function(contato) {        
-        
+        /*
         var  selectedDate = new Date(contato.diaData);
         var year = selectedDate.getFullYear();
         var month = selectedDate.getMonth() + 1;
@@ -15,7 +15,9 @@ angular.module("controlePressaoArterial").controller("novoContatoCtrl", function
         var minutes = selectedHour.getMinutes();
 
         contato.data = new Date(year, month, day, hour, minutes, 0);       
-
+        */
+        contato.data = new Date();
+        
         contatosAPI.saveContato(contato)
             .then(function (contato) {
                 delete $scope.contato;
