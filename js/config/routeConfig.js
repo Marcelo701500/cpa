@@ -9,6 +9,13 @@ angular.module("controlePressaoArterial").config(function($routeProvider, $locat
             templateUrl: "view/novoContato.html",
             controller: "novoContatoCtrl",
             resolve: {
+                contato: function() {
+                    let data = {
+                        dia: new Date(),
+                        hora: new Date()
+                    }
+                    return data;
+                },
                 pacientes: function(pacientesAPI) {
                     return pacientesAPI.getPacientes();
                 }  
