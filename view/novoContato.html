@@ -29,6 +29,8 @@
         <label for="horaData">Hora</label>             
         <input class="form-control" type="time" id="hora-data" name="horaData" ng-model="contato.horaData" ng-required="true"--> 
 
+        <input class="form-control" type="date" id="dia" name="dia" ng-model="contato.dia" ng-required="true"> 
+        
         <label for="paciente">Paciente</label>
         <select class="form-control form-select" name="paciente" id="paciente" ng-model="contato.paciente" ng-required="true" 
             ng-options="paciente.nome for paciente in pacientes | orderBy:'nome'">
