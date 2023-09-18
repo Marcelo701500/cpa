@@ -1,11 +1,21 @@
 angular.module("controlePressaoArterial").controller("novoContatoCtrl", function($scope, $location, contatosAPI, pacientes) {
             
     $scope.app = "CPA - Controle da Pressão Arterial"; 
-    $scope.pacientes = pacientes.data;  
-    
-    // Adicionar - Ok
+    $scope.pacientes = pacientes.data; 
+
     $scope.adicionarContato = function(contato) {        
-        contato.data = new Date();                
+        
+        var  selectedDate = new Date(contato.diaData);
+        var year = selectedDate.getFullYear();
+        var month = selectedDate.getMonth() + 1;
+        var day = selectedDate.getDate();
+
+        var  selectedHour = new Date(contato.horaData);
+        var hour = selectedHour.getHours();
+        var minutes = selectedHour.getMinutes();
+
+        contato.data = new Date(year, month, day, hour, minutes, 0);       
+
         contatosAPI.saveContato(contato)
             .then(function (contato) {
                 delete $scope.contato;

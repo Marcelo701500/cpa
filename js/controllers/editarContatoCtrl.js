@@ -1,10 +1,26 @@
 angular.module("controlePressaoArterial").controller("editarContatoCtrl", function($scope, $location, contatosAPI, pacientesAPI, coresAPI, contato) {
             
     $scope.app = "CPA - Controle da Pressão Arterial";  
-    $scope.contato = contato.data; 
+   
+    $scope.contato = contato.data;
+    $scope.contato.diaData = new Date(contato.data.diaData);
+    $scope.contato.horaData = new Date(contato.data.horaData);
+    $scope.contato.data = new Date(contato.data.data);    
     
     $scope.updateContato = function(contato) { 
-        contatosAPI.updateContato(contato)
+
+        var  selectedDate = new Date(contato.diaData);
+        var year = selectedDate.getFullYear();
+        var month = selectedDate.getMonth() + 1;
+        var day = selectedDate.getDate();
+
+        var  selectedHour = new Date(contato.horaData);
+        var hour = selectedHour.getHours();
+        var minutes = selectedHour.getMinutes();
+
+        contato.data = new Date(year, month, day, hour, minutes, 0);
+
+        contatosAPI.updateContato(contato)        
             .then(function (contato) {
                 //delete $scope.contato;
                 $scope.contatoForm.$setPristine();
