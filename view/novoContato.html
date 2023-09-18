@@ -22,15 +22,13 @@
     <div ng-show="false" class="alert alert-success">Cadastro realizado com sucesso!</div>
     
     <form name="contatoForm"> 
-            
-        <!--label for="diaData">Data</label>          
-        <input class="form-control" type="date" id="dia-data" name="diaData" ng-model="contato.diaData" ng-required="true"> 
+     
+        <label for="dia">Data</label> 
+        <input class="form-control" type="date" id="dia" name="dia" ng-model="contato.dia"> 
 
-        <label for="horaData">Hora</label>             
-        <input class="form-control" type="time" id="hora-data" name="horaData" ng-model="contato.horaData" ng-required="true"--> 
+        <label for="hora">Hora</label>             
+        <input class="form-control" type="time" id="hora" name="hora" ng-model="contato.hora"> 
 
-        <input class="form-control" type="date" id="dia" name="dia" ng-model="contato.dia" ng-required="true"> 
-        
         <label for="paciente">Paciente</label>
         <select class="form-control form-select" name="paciente" id="paciente" ng-model="contato.paciente" ng-required="true" 
             ng-options="paciente.nome for paciente in pacientes | orderBy:'nome'">

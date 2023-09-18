@@ -11,15 +11,14 @@ angular.module("controlePressaoArterial").config(function($routeProvider, $locat
             resolve: {
                 pacientes: function(pacientesAPI) {
                     return pacientesAPI.getPacientes();
-                }    
+                }  
             }           
         }).
         when("/detalhesContato/:id", {
             templateUrl: "view/detalhesContato.html",
             controller: "detalhesContatoCtrl",
             resolve: {
-                contato: function(contatosAPI, $route) {
-                    console.log("route");
+                contato: function(contatosAPI, $route) {                    
                     return contatosAPI.getContato($route.current.params.id);
                 } 
             }
