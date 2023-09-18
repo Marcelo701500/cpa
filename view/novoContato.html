@@ -21,7 +21,8 @@
 
     <div ng-show="false" class="alert alert-success">Cadastro realizado com sucesso!</div>
     
-    <form name="contatoForm">          
+    <form name="contatoForm"> 
+
         <div class="form-group date-form col-sm-12">
             <div class="col-sm-5">     
                 <label for="diaData">Data</label>          
@@ -32,6 +33,7 @@
                 <input class="form-control" type="time" id="hora-data" name="horaData" ng-model="contato.horaData" ng-required="true"> 
             </div> 
         </div>   
+        
         <label for="paciente">Paciente</label>
         <select class="form-control form-select" name="paciente" id="paciente" ng-model="contato.paciente" ng-required="true" 
             ng-options="paciente.nome for paciente in pacientes | orderBy:'nome'">
