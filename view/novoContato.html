@@ -24,10 +24,10 @@
     <form name="contatoForm"> 
      
         <label for="diadata">Data</label> 
-        <input class="form-control" type="date" id="diadata" name="diadata" ng-model="contato.diaData"> 
+        <input class="form-control" type="date" id="diadata" name="diadata" ng-model="contato.diaData" ng-disabled="true"> 
 
         <label for="hora">Hora</label>             
-        <input class="form-control" type="time" id="hora" name="hora" ng-model="contato.hora"> 
+        <input class="form-control" type="time" id="hora" name="hora" ng-model="contato.hora" ng-disabled="true"> 
 
         <label for="paciente">Paciente</label>
         <select class="form-control form-select" name="paciente" id="paciente" ng-model="contato.paciente" ng-required="true" 

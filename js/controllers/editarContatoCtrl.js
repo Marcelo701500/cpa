@@ -6,7 +6,7 @@ angular.module("controlePressaoArterial").controller("editarContatoCtrl", functi
    
     let dataRegistro = new Date(contato.data.data);
     let ano = dataRegistro.getFullYear();
-    let mes = dataRegistro.getMonth() + 1;
+    let mes = dataRegistro.getMonth();
     let dia = dataRegistro.getDate();        
     let hora = dataRegistro.getHours();
     let minutos = dataRegistro.getMinutes();
@@ -20,10 +20,10 @@ angular.module("controlePressaoArterial").controller("editarContatoCtrl", functi
 
         let dataSelecionada = new Date(contato.diaData);
         let ano = dataSelecionada.getFullYear();
-        let mes = dataSelecionada.getMonth() + 1;
+        let mes = dataSelecionada.getMonth();
         let dia = dataSelecionada.getDate();
 
-        let  horaSelecionada = new Date(contato.hora);        
+        let horaSelecionada = new Date(contato.hora);        
         let hora = horaSelecionada.getHours();
         let minutos = horaSelecionada.getMinutes();
 

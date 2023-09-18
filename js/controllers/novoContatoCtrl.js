@@ -4,20 +4,11 @@ angular.module("controlePressaoArterial").controller("novoContatoCtrl", function
     $scope.pacientes = pacientes.data;    
 
     $scope.adicionarContato = function(contato) {    
+
+        contato.data = new Date();
+        contato.diaData = new Date();
+        contato.hora = new Date();
         
-        let dataSelecionada = new Date(contato.diaData);
-        let ano = dataSelecionada.getFullYear();
-        let mes = dataSelecionada.getMonth() + 1;
-        let dia = dataSelecionada.getDate();
-
-        let  horaSelecionada = new Date(contato.hora);        
-        let hora = horaSelecionada.getHours();
-        let minutos = horaSelecionada.getMinutes();
-
-        contato.data = new Date(ano, mes, dia, hora, minutos, 0); 
-
-        console.log(contato);
-
         contatosAPI.saveContato(contato)
             .then(function (contato) {
                 delete $scope.contato;
