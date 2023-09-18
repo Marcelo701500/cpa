@@ -3,8 +3,8 @@ angular.module("controlePressaoArterial").controller("editarContatoCtrl", functi
     $scope.app = "CPA - Controle da Pressão Arterial";  
    
     $scope.contato = contato.data;
-    $scope.contato.diaData = new Date(contato.data.diaData);
-    $scope.contato.horaData = new Date(contato.data.horaData);
+    $scope.contato.diaData = new Date(contato.data.data);
+    $scope.contato.horaData = new Date(contato.data.data);
     $scope.contato.data = new Date(contato.data.data);    
     
     $scope.updateContato = function(contato) { 
