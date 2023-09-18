@@ -3,25 +3,32 @@ angular.module("controlePressaoArterial").controller("editarContatoCtrl", functi
     $scope.app = "CPA - Controle da Pressão Arterial";  
    
     $scope.contato = contato.data;
-    //$scope.contato.diaData = new Date(contato.data.data);
-    //$scope.contato.horaData = new Date(contato.data.data);
-    //$scope.contato.data = new Date(contato.data.data);  
+   
+    let dataRegistro = new Date(contato.data.data);
+    let ano = dataRegistro.getFullYear();
+    let mes = dataRegistro.getMonth() + 1;
+    let dia = dataRegistro.getDate();        
+    let hora = dataRegistro.getHours();
+    let minutos = dataRegistro.getMinutes();
 
+    $scope.contato.diaData = new Date(ano, mes, dia, hora, minutos, 0);
+    $scope.contato.hora = new Date(ano, mes, dia, hora, minutos, 0); 
+    $scope.contato.data = new Date(ano, mes, dia, hora, minutos, 0); 
+
+    
     $scope.updateContato = function(contato) { 
 
-        /*
-        var  selectedDate = new Date(contato.diaData);
-        var year = selectedDate.getFullYear();
-        var month = selectedDate.getMonth() + 1;
-        var day = selectedDate.getDate();
+        let dataSelecionada = new Date(contato.diaData);
+        let ano = dataSelecionada.getFullYear();
+        let mes = dataSelecionada.getMonth() + 1;
+        let dia = dataSelecionada.getDate();
 
-        var  selectedHour = new Date(contato.horaData);
-        var hour = selectedHour.getHours();
-        var minutes = selectedHour.getMinutes();
+        let  horaSelecionada = new Date(contato.hora);        
+        let hora = horaSelecionada.getHours();
+        let minutos = horaSelecionada.getMinutes();
 
-        contato.data = new Date(year, month, day, hour, minutes, 0);
-        */
-       
+        contato.data = new Date(ano, mes, dia, hora, minutos, 0); 
+
         contatosAPI.updateContato(contato)        
             .then(function (contato) {
                 //delete $scope.contato;

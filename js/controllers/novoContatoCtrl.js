@@ -1,26 +1,22 @@
-angular.module("controlePressaoArterial").controller("novoContatoCtrl", function($scope, $location, contatosAPI, contato, pacientes) {
+angular.module("controlePressaoArterial").controller("novoContatoCtrl", function($scope, $location, contatosAPI, pacientes) {
             
     $scope.app = "CPA - Controle da Pressão Arterial"; 
     $scope.pacientes = pacientes.data;    
 
-    $scope.adicionarContato = function(contato) {     
+    $scope.adicionarContato = function(contato) {    
+        
+        let dataSelecionada = new Date(contato.diaData);
+        let ano = dataSelecionada.getFullYear();
+        let mes = dataSelecionada.getMonth() + 1;
+        let dia = dataSelecionada.getDate();
 
-        /*
-        var  selectedDate = new Date(contato.diaData);
-        var year = selectedDate.getFullYear();
-        var month = selectedDate.getMonth() + 1;
-        var day = selectedDate.getDate();
+        let  horaSelecionada = new Date(contato.hora);        
+        let hora = horaSelecionada.getHours();
+        let minutos = horaSelecionada.getMinutes();
 
-        var  selectedHour = new Date(contato.horaData);
-        var hour = selectedHour.getHours();
-        var minutes = selectedHour.getMinutes();
+        contato.data = new Date(ano, mes, dia, hora, minutos, 0); 
 
-        contato.data = new Date(year, month, day, hour, minutes, 0);       
-        */
-       
-        contato.data = new Date();
-        contato.dia = contato.data
-        contato.hora = contato.data
+        console.log(contato);
 
         contatosAPI.saveContato(contato)
             .then(function (contato) {
@@ -35,17 +31,17 @@ angular.module("controlePressaoArterial").controller("novoContatoCtrl", function
 
     function setData(dataAtual) { 
 
-        var ano = dataAtual.getFullYear();
-        var mes = dataAtual.getMonth() + 1;
-        var dia = dataAtual.getDate();        
-        var hora = dataAtual.getHours();
-        var minutos = dataAtual.getMinutes();
+        let ano = dataAtual.getFullYear();
+        let mes = dataAtual.getMonth() + 1;
+        let dia = dataAtual.getDate();        
+        let hora = dataAtual.getHours()-3;
+        let minutos = dataAtual.getMinutes();
 
-        var dataHoraAtual = new Date(ano, mes, dia, hora, minutos, 0); 
+        dataAtual = new Date(ano, mes, dia, hora, minutos, 0); 
 
         setTimeout(() => {
-            document.getElementById('dia').valueAsDate = dataHoraAtual;
-            document.getElementById('hora').valueAsDate = dataHoraAtual;       
+            document.getElementById('diadata').valueAsDate = dataAtual;
+            document.getElementById('hora').valueAsDate = dataAtual;       
         }, 1000);
     }
 
